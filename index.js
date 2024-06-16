@@ -13,6 +13,7 @@ connectDB();
 // register routes
 app.use(productRoutes);
 
+// TODO: global error handler
 // network port and server
 const PORT = 6000;
 app.listen(PORT, () => {
