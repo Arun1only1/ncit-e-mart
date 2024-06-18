@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
-const dbUserName = "xyz";
-const dbPassword = encodeURIComponent("xyz@123");
-const dbName = "ncit-emart";
-const dbHost = "school.b6qkdnb.mongodb.net";
+const dbUserName = process.env.DB_USER_NAME;
+const dbPassword = encodeURIComponent(process.env.DB_PASSWORD);
+const dbName = process.env.DB_NAME;
+const dbHost = process.env.DB_HOST;
 
 const connectDB = async () => {
   try {

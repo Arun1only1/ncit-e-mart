@@ -1,12 +1,13 @@
 import express from "express";
-import Product from "./product.model.js";
 import mongoose from "mongoose";
+import Product from "./product.model.js";
+import { isValidUser } from "./user.authorize.js";
 
 // routes are called controller
 const router = express.Router();
 
 // ? add product
-router.post("/product/add", async (req, res) => {
+router.post("/product/add", isValidUser, async (req, res) => {
   //  extract new product from req.body
   const newProduct = req.body;
 
@@ -18,7 +19,7 @@ router.post("/product/add", async (req, res) => {
 });
 
 // ? get product detail by id
-router.get("/product/detail/:id", async (req, res) => {
+router.get("/product/detail/:id", isValidUser, async (req, res) => {
   // extract product id from req.params
   const productId = req.params.id;
 
@@ -43,7 +44,7 @@ router.get("/product/detail/:id", async (req, res) => {
 });
 
 // ? delete product by id
-router.delete("/product/delete/:id", async (req, res) => {
+router.delete("/product/delete/:id", isValidUser, async (req, res) => {
   // extract product id from req.params
   const productId = req.params.id;
 
@@ -71,7 +72,7 @@ router.delete("/product/delete/:id", async (req, res) => {
 });
 
 // ? edit product by id
-router.put("/product/edit/:id", async (req, res) => {
+router.put("/product/edit/:id", isValidUser, async (req, res) => {
   // extract product id from req.params
   const productId = req.params.id;
 
