@@ -108,4 +108,12 @@ router.put("/product/edit/:id", isValidUser, async (req, res) => {
 });
 
 // ? list all product
+router.get("/product/list", isValidUser, async (req, res) => {
+  const products = await Product.find(
+    {},
+    { name: 1, image: 1, price: 1, description: 1, brand: 1 }
+  );
+
+  return res.status(200).send({ message: "success", productList: products });
+});
 export default router;

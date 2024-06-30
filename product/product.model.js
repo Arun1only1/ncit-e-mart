@@ -57,6 +57,8 @@ const productSchema = new mongoose.Schema({
       "stationery",
       "liquor",
       "local",
+      "electrical",
+      "machinery",
     ],
   },
 });

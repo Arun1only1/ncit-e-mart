@@ -2,6 +2,7 @@ import express from "express";
 import connectDB from "./connect.db.js";
 import productRoutes from "./product/product.controller.js";
 import userRoutes from "./user/user.controller.js";
+import cors from "cors";
 
 const app = express();
 
@@ -11,7 +12,9 @@ app.use(express.json());
 // connect database
 connectDB();
 
-// TODO:CORS
+// ? CORS=> Cross Origin Resource Sharing
+app.use(cors());
+
 // TODO: api version
 
 // register routes
