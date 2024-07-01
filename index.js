@@ -21,7 +21,11 @@ app.use(cors());
 app.use(productRoutes);
 app.use(userRoutes);
 
-// TODO: global error handler
+app.use((error, req, res, next) => {
+  return res.status(500).send({ message: "Something went wrong." });
+
+  next();
+});
 // network port and server
 const PORT = process.env.PORT;
 
