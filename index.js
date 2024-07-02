@@ -15,11 +15,9 @@ connectDB();
 // ? CORS=> Cross Origin Resource Sharing
 app.use(cors());
 
-// TODO: api version
-
 // register routes
 app.use(productRoutes);
-app.use(userRoutes);
+app.use("/v2", userRoutes);
 
 app.use((error, req, res, next) => {
   return res.status(500).send({ message: "Something went wrong." });
